@@ -5,7 +5,7 @@
             <div class="mybar"></div>
         </div>
         <div class="right_con">
-            <p class="title">2017年Top种类比例</p>
+            <p class="title">2017年Top5产品</p>
             <div class="myline"></div>
         </div>
         <div class="right_con">
@@ -27,7 +27,7 @@ export default {
       flag: false,
       barDataY: ['建设银行', '工商银行', '中国邮政', '农业银行', '成都银行'],
       barDataX: [123, 553, 434, 543, 351],
-      pieData: [{value: 1212, name: '中国建设银行'},{value: 1645, name: '中国工商银行'},{value: 1484, name: '中国邮政'}],
+      pieData: [{value: 3244, name: 'NF'}, {value: 1718, name: 'RSAS'}, {value: 1347, name: 'IPS'}, {value: 1071, name: 'WAF'}, {value: 904, name: 'SAS'}],
       // 销售额排名 名称
       bank: ['所有银行', '建设银行', '邮政', '工商银行', '民生银行', '成都银行']
     }
@@ -157,31 +157,40 @@ export default {
           zlevel: 0
         })
       pie.setOption({
-          series: [{
+          legend: {
+            type: 'scroll',
+            pageTextStyle: {
+              color: '#fff'
+            },
+            // orient: 'vertical',
+            x: 'left',
+            color: 'red',
+            // y: 'bottom',
+            data: ['NF', 'RSAS', 'IPS', 'WAF', 'SAS'],
+            textStyle: {
+              color: '#fff',
+              fontSize: 10
+            }
+          },
+          tooltip: {
+            trigger: 'item',
+            formatter: '{a}</br>{b} : {c} ({d}%)'
+          },
+          series: {
             type: 'pie',
+            name: '17年Top5产品分布',
             radius: ['20%', '70%'],
-            center: ['50%', '50%'],
+            center: ['50%', '60%'],
             color:['#667AB3', '#0093DD','#3BB3C2','#68B92E', '#F8C300'],
-            itemStyle: {  
-              normal: {  
-                label: {  
-                  show: true,//是否展示
-                  textStyle: {  
-                    fontWeight:'bolder',  
-                    fontSize : '12',  
-                    fontFamily : '微软雅黑'
-                  }  
-                }  
-              },
-              emphasis: {
-                label: {
-                  show: true
-                }
+            hoverOffset: 8,
+            label: {
+              normal: {
+                show: true
               }
             },
             labelLine: {
               normal: {
-               length: 4
+               length: 2
               }
             },
             data: this.pieData,
@@ -191,7 +200,7 @@ export default {
             animationDelay: function (idx) {
               return Math.random() * 300;
             }
-          }]
+          }
       })
     },
     drawSplashes () {
@@ -217,7 +226,7 @@ export default {
           }
         },
         legend: {
-          data: ['金融', '企业'],
+          data: ['建设银行', '工商银行'],
           textStyle: {
             color: '#fff'
           }
@@ -293,7 +302,7 @@ export default {
         series: [{
           xAxisIndex: 0,
           yAxisIndex: 0,
-          name: '金融',
+          name: '建设银行',
           type: 'scatter',
           data: this.formatDate([
             [new Date('2017-02-28'), 4005],
@@ -310,7 +319,7 @@ export default {
           ])
         },
         {
-          name: '企业',
+          name: '工商银行',
           type: 'scatter',
           data: this.formatDate([
             [new Date('2017-03-1'), 4864],

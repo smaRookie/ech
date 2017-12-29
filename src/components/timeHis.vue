@@ -26,7 +26,7 @@
     <div class="content">
       <h1></h1>
       <p></p>
-    </div> -->
+    </div>
     <!-- <inforight></inforight> -->
     <tbottom></tbottom>
     <!-- <div class="pro_all">

@@ -312,10 +312,11 @@
             ]),
             // 控制地图上点的大小
             symbolSize: function (val) {
-              let _val = val[2] / 10
-              // 控制值在5到35之间
-                return Math.max(5, Math.min(35, _val))
-              },
+            let _val = val[2] / 10
+            // 控制值在5到35之间
+              return Math.max(5, Math.min(35, _val))
+            },
+            symbol: 'image://static/icon/fiveStar.svg',
             label: {
               normal: {
                   show: false
